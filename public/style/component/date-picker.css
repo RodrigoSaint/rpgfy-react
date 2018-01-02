@@ -1,0 +1,8 @@
+.flex .vdp-datepicker__calendar{
+    position: fixed;
+    border-radius: .2em;
+  }
+  .flex .vdp-datepicker__calendar header
+  {
+    border-bottom: none;
+  }

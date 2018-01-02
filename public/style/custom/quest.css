@@ -1,0 +1,16 @@
+.quest
+{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.quest>.card
+{
+    border: 1px solid black;
+}
+
+.quest-image
+{
+  max-height: 200px;
+  margin: auto;
+}

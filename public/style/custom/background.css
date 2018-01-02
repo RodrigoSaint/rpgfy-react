@@ -1,0 +1,22 @@
+.background-world-map
+{
+  background-image: url('https://rpgfy.blob.core.windows.net/base-image/World.png');
+}
+
+.background-plain
+{
+  background-image: url('https://rpgfy.blob.core.windows.net/base-image/Plain.png');
+}
+
+.background-castle
+{
+  background-image: url('https://rpgfy.blob.core.windows.net/base-image/Castle.png');
+}
+
+.background-full
+{
+  height: 100%;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+}
