@@ -1,15 +1,23 @@
 import React from "react";
+import Player from "./model";
 
 class PlayerCreation extends React.Component
 {
     constructor()
     {
         super();
-        this.state = {player: {name: "", email: "", password: ""}}
+        this.state = {
+            player: {name: "", email: "", password: "", playerClass: ""},
+            validation: {}
+        }
     }
+    
     save()
     {
-
+        this.setState({validation: Player.validation})
+        Player.validate(this.state.player)
+            .then(() => alert("sucess"))
+            .catch(err => console.log(err))
     }
 
     changeState(event)
@@ -18,7 +26,6 @@ class PlayerCreation extends React.Component
         change[event.target.name] = event.target.value
         const newPlayer = Object.assign(this.state.player, change)
         this.setState({player: newPlayer})
-        console.log(this.state.player)
     }
 
     render()
@@ -59,7 +66,11 @@ class PlayerCreation extends React.Component
                     </div>
                     <div>
                         <label htmlFor="class">Class</label>
-                        <select v-model="player.playerClass" id="class">
+                        <select
+                            name="playerClass" 
+                            value={this.state.player.playerClass} 
+                            onInput={event => this.changeState(event)} 
+                            id="class">
                             <option value="">Select a class</option>
                             <option value="1">Warrior</option>
                             <option value="2">Ranger</option>
