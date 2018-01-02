@@ -1,0 +1,4 @@
+all tags should be self-closing or containing.
+some attributes have to chage their names such as htmlFor, className for compatibility issues;
+object attributes should be created before rendering;
+if you want to pass code as attribute you should do it using {}
