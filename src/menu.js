@@ -1,5 +1,11 @@
 import React from "react";
 
+const MenuItem = props => (
+    <a href={props.link} className="pseudo button">
+        <div className={props.icon}></div>{props.title}
+    </a>
+)
+
 class Menu extends React.Component
 {
     get isLogged(){
@@ -28,9 +34,8 @@ class Menu extends React.Component
             <input id="bmenub" type="checkbox" className="show" />
             <label htmlFor="bmenub" className="burger pseudo button">Menu</label>
             <div className="menu">
-                {this.linkList.map(link => (
-                    <a href={link.link} className="pseudo button"><div className={link.icon}></div>{link.title}</a>
-                ))}
+                {/* ... is the spread operator */}
+                {this.linkList.map(link => <MenuItem {...link}/>)}
             </div>
     
         </nav>)
