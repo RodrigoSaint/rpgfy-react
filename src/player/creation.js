@@ -1,5 +1,6 @@
 import React from "react";
 import Player from "./model";
+import ErrorComponent from "../common/error-component";
 
 class PlayerCreation extends React.Component
 {
@@ -43,6 +44,9 @@ class PlayerCreation extends React.Component
                             name="name"
                             required 
                             autoFocus />
+                        <ErrorComponent model={this.state.player} 
+                            validation={this.state.validation} 
+                            property="name" />
                     </div>
                     <div>
                         <label htmlFor="email">E-mail</label>
