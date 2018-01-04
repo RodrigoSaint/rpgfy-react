@@ -1,8 +1,10 @@
 import React from "react";
+import { Switch, Route } from 'react-router-dom'
+
+import Menu from "./menu";
 import PlayerCreation from "./player/creation";
 import Login from "./player/login";
-import Menu from "./menu";
-import { Switch, Route } from 'react-router-dom'
+import Status from "./player/status";
 
 
 class App extends React.Component
@@ -17,6 +19,7 @@ class App extends React.Component
           <Switch>
             <Route exact path='/' component={PlayerCreation}/>
             <Route exact path='/login' component={Login}/>
+            <Route exact path='/status' component={Status}/>
           </Switch>
           </div>
         </div>
