@@ -8,10 +8,7 @@ const MenuItem = props => (
 
 class Menu extends React.Component
 {
-    get isLogged(){
-        return false;
-    }
-
+    get isLogged(){ return false;}
     get linkList(){
         if(this.isLogged) return [
                 {icon: "icon sword", title: 'Status', link: "#/status"},
@@ -22,7 +19,6 @@ class Menu extends React.Component
             {icon: "icon map-old", title: 'Login', link: "#/login"}]
         
     }
-
     render()
     {
         return (<nav className="demo">
@@ -35,7 +31,7 @@ class Menu extends React.Component
             <label htmlFor="bmenub" className="burger pseudo button">Menu</label>
             <div className="menu">
                 {/* ... is the spread operator */}
-                {this.linkList.map(link => <MenuItem {...link}/>)}
+                {this.linkList.map(link => <MenuItem key={link.title} {...link}/>)}
             </div>
     
         </nav>)
