@@ -1,20 +1,15 @@
 import React from "react";
 
-class Login extends React.Component
+import FormComponent from "../common/form-component";
+
+class Login extends FormComponent
 {
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props, {entityName: "login"});
         this.state = {
             login: { name: '', password: '' }
         }
-    }
-    changeState(event)
-    {
-        const change = {};
-        change[event.target.name] = event.target.value
-        const login = Object.assign(this.state.login, change)
-        this.setState({login})
     }
 
     sendLoginRequest(){
@@ -31,14 +26,14 @@ class Login extends React.Component
                 <input type="text" 
                 name="name"
                 value={this.state.login.name} 
-                onInput={event => this.changeState(event)} 
+                onInput={event => this.changeEntityState(event)} 
                 placeholder="Ex: LordDestroyer" autoFocus/>
             </div>
             <div>
                 <label htmlFor="password">Password</label>
                 <input type="password" value={this.state.login.password}
                     name="password"
-                    onInput={event => this.changeState(event)} 
+                    onInput={event => this.changeEntityState(event)} 
                     placeholder="Ex: ******" />
             </div>
             <div>
