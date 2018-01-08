@@ -1,12 +1,13 @@
 import React from "react";
+import FormComponent from "../common/form-component";
 import Player from "./model";
 import ErrorComponent from "../common/error-component";
 
-class PlayerCreation extends React.Component
+class PlayerCreation extends FormComponent
 {
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props, {entityName: "player"});
         this.state = {
             player: {name: "", email: "", password: "", playerClass: ""},
             validation: {}
@@ -21,14 +22,6 @@ class PlayerCreation extends React.Component
             .catch(err => console.log(err))
     }
 
-    changeState(event)
-    {
-        const change = {};
-        change[event.target.name] = event.target.value
-        const newPlayer = Object.assign(this.state.player, change)
-        this.setState({player: newPlayer})
-    }
-
     render()
     {
         return (
@@ -39,7 +32,7 @@ class PlayerCreation extends React.Component
                         <label htmlFor="name">Name</label>
                         <input id="name"
                             value={this.state.player.name}
-                            onInput={event => this.changeState(event)}
+                            onInput={event => this.changeEntityState(event)} 
                             placeholder="Ex: LordDestroyer"
                             name="name"
                             required 
@@ -55,7 +48,7 @@ class PlayerCreation extends React.Component
                             placeholder="Ex: lord@gmail.com"
                             name="email"
                             value={this.state.player.email}
-                            onInput={event => this.changeState(event)}
+                            onInput={event => this.changeEntityState(event)} 
                             required />
                     </div>
                     <div>
@@ -65,7 +58,7 @@ class PlayerCreation extends React.Component
                             placeholder="Ex: *******"
                             name="password"
                             value={this.state.player.password}
-                            onInput={event => this.changeState(event)}
+                            onInput={event => this.changeEntityState(event)} 
                             required />
                     </div>
                     <div>
@@ -73,7 +66,7 @@ class PlayerCreation extends React.Component
                         <select
                             name="playerClass" 
                             value={this.state.player.playerClass} 
-                            onInput={event => this.changeState(event)} 
+                            onInput={event => this.changeEntityState(event)} 
                             id="class">
                             <option value="">Select a class</option>
                             <option value="1">Warrior</option>
