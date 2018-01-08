@@ -1,6 +1,7 @@
 import React from "react";
 import FormComponent from "../common/form-component";
 import StarRating from "../common/star-rating";
+import MonsterSelection from "./monster-selection";
 
 class QuestCreation extends FormComponent
 {
@@ -54,7 +55,7 @@ class QuestCreation extends FormComponent
             </div>
             <div>
               <label htmlFor="select-mob">Select Mob</label>
-              {/* <monster-selection v-model="quest.mob"></monster-selection> */}
+              <MonsterSelection />
               <error-component property-name="mob" model="quest" validation="validation"/>
             </div>
             <div className="full">
