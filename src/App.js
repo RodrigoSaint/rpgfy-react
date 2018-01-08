@@ -6,6 +6,7 @@ import PlayerCreation from "./player/creation";
 import Login from "./player/login";
 import Status from "./player/status";
 import QuestList from "./quest/list";
+import QuestCreate from "./quest/create";
 
 
 class App extends React.Component
@@ -22,6 +23,7 @@ class App extends React.Component
             <Route exact path='/login' component={Login}/>
             <Route exact path='/status' component={Status}/>
             <Route exact path='/quest' component={QuestList}/>
+            <Route exact path='/quest/create' component={QuestCreate}/>
           </Switch>
           </div>
         </div>
