@@ -1,4 +1,5 @@
 import React from "react";
+import StarRating from "../common/star-rating";
 
 const QuestCard = (props) => 
 {
@@ -9,7 +10,7 @@ const QuestCard = (props) =>
             </header>
             <img src={props.quest.mob.image} alt={props.quest.title} className="quest-image"/>
             <footer>
-                {/* <star-rating disabled="true" v-model="quest.difficulty"></star-rating> */}
+                <StarRating max="5" selected={props.quest.difficulty} />  
             </footer>
         </div>
     </div>)
