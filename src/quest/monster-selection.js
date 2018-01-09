@@ -48,7 +48,7 @@ class MonsterSelection extends React.Component
             <Popup id="mob-selection">
                 <header>
                     <h3><div className="icon dragon-mob"></div>Monster Selection</h3>
-                    <label htmlFor="modal_1" className="close">&times;</label>
+                    <label htmlFor="mob-selection" className="close">&times;</label>
                 </header>
                 <div style={{padding: "1em"}}>
                     <div className="flex one">

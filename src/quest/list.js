@@ -1,5 +1,6 @@
 import React from "react";
 import StarRating from "../common/star-rating";
+import QuestPopup from "./quest-popup";
 
 const QuestCard = (props) => 
 {
@@ -10,7 +11,8 @@ const QuestCard = (props) =>
             </header>
             <img src={props.quest.mob.image} alt={props.quest.title} className="quest-image"/>
             <footer>
-                <StarRating max="5" selected={props.quest.difficulty} />  
+                <StarRating max="5" selected={props.quest.difficulty} />
+                <QuestPopup quest={props.quest} />  
             </footer>
         </div>
     </div>)
