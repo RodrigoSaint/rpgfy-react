@@ -1,8 +1,9 @@
 import React from "react";
+import Popup from "../common/popup";
 const MonsterSelectionDisplay = props => 
 {
     const selectMonster = props => {if (props.onClick) props.onClick(props)}
-    return (<div className="component-row" click={selectMonster} >
+    return (<div className="component-row" onClick={selectMonster} >
         <img src={props.image} alt={props.name} /> 
         <h3><div className="icon star-unselected"></div>{props.name}</h3>
         <p>{props.description}</p>
@@ -43,26 +44,21 @@ class MonsterSelection extends React.Component
     {
         const mobSelectorComponentCollection = this.mobCollectionFiltered
             .map(mob => <MonsterSelectionDisplay key={mob.name} {...mob} />);
-        return (<div>
-            <label htmlFor="modal_1" className="button">Select mob</label>
-            <div className="modal">
-                <input id="modal_1" type="checkbox" />
-                <label htmlFor="modal_1" className="overlay"></label>
-                <div>
-                    <header>
-                        <h3><div className="icon dragon-mob"></div>Monster Selection</h3>
-                        <label htmlFor="modal_1" className="close">&times;</label>
-                    </header>
-                    <div style={{padding: "1em"}}>
-                        <div className="flex one">
-                            <input value={this.state.filter} onInput={event => this.updateFilterText(event)} 
-                                type="text" placeholder="Filter"/>
-                            {mobSelectorComponentCollection}
-                        </div>
+        return (
+            <Popup id="mob-selection">
+                <header>
+                    <h3><div className="icon dragon-mob"></div>Monster Selection</h3>
+                    <label htmlFor="modal_1" className="close">&times;</label>
+                </header>
+                <div style={{padding: "1em"}}>
+                    <div className="flex one">
+                        <input value={this.state.filter} onInput={event => this.updateFilterText(event)} 
+                            type="text" placeholder="Filter"/>
+                        {mobSelectorComponentCollection}
                     </div>
                 </div>
-            </div>
-        </div>)
+            </Popup>
+        )
     }
 
 }
