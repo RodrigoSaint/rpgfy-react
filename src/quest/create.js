@@ -1,4 +1,7 @@
 import React from "react";
+import 'react-datepicker/dist/react-datepicker.css';
+import DatePicker from 'react-datepicker';
+
 import FormComponent from "../common/form-component";
 import StarRating from "../common/star-rating";
 import MonsterSelection from "./monster-selection";
@@ -22,6 +25,12 @@ class QuestCreation extends FormComponent
     {
         const quest = Object.assign({}, this.state.quest, {difficulty: newDifficulty})
         this.setState({quest})
+    }
+
+    updateDueDate(dueDate)
+    {
+      const quest = Object.assign({}, this.state.quest, {dueDate})
+      this.setState({quest})
     }
 
     render(){
@@ -49,7 +58,9 @@ class QuestCreation extends FormComponent
             </div>
             <div>
               <label htmlFor="due-date">Due date</label>
-              {/* Get a date picker */}
+              <DatePicker
+                  selected={this.state.quest.dueDate}
+                  onChange={date => this.updateDueDate(date)}/>
               {/* <error-component property-name="dueDate" model="quest" 
                 validate-config="validateConfig" validation="validation"/> */}
             </div>
